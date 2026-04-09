@@ -15,8 +15,12 @@ const Navbar = () => {
                     <div className="h-20 bg-gray-500"/>
                     {/* Navigation links */}
                     <div className="flex flex-row p-2 justify-end">
+                        {/* TODO: Find a way to make the navbar entry more dynamic */}
                         <Link href="/" className="p-2">Home</Link>
+                        <Link href="/articles" className="p-2">Articles</Link>
+                        <Link href="/ministries" className="p-2">Ministries</Link>
                         <Link href="/about" className="p-2">About</Link>
+                        <Link href="/contact" className="p-2">Contact Us</Link>
                     </div>
                 </div>
             </div>
