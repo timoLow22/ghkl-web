@@ -1,22 +1,96 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap");
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─────────────────────────────────────────────
+   GHKL Design System
+   Follows Material Design 3 color role naming
+   Source color: Dark Oak #6B4226
+   ───────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* ── Typography ── */
+  --font-heading: "Merriweather", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-sans:    var(--font-body);
+  --font-mono:    "Fira Mono", "Courier New", monospace;
+
+  /* ────────────────────────────────────────────
+     M3 COLOR ROLES
+     Naming convention mirrors M3 exactly:
+     primary, on-primary, primary-container,
+     on-primary-container, secondary, etc.
+  ──────────────────────────────────────────── */
+
+  /* ── Primary ── */
+  --color-primary:              #6B4226;   /* main brand, buttons, key UI */
+  --color-on-primary:           #ffffff;   /* text/icons ON primary */
+  --color-primary-container:    #EEDCCA;   /* tinted container surfaces */
+  --color-on-primary-container: #2C1A0E;   /* text/icons ON primary container */
+
+  /* ── Secondary ── */
+  --color-secondary:              #7A6355;  /* supporting brand color */
+  --color-on-secondary:           #ffffff;
+  --color-secondary-container:    #F2E5DC;
+  --color-on-secondary-container: #2E1F16;
+
+  /* ── Tertiary (to decide later on if its needed) ── */
+
+  /* ── Error ── */
+  --color-error:              #B71C1C;
+  --color-on-error:           #ffffff;
+  --color-error-container:    #FDECEA;
+  --color-on-error-container: #410002;
+
+  /* ── Surface roles ── */
+  /* for more neutral backgrounds and container colors for components like cards, sheets, and dialogs. */
+  --color-surface:            #f6f6f6;   /* main page background */
+  --color-on-surface:         #000000;   /* primary text on surface */
+  --color-surface-variant:    #eeebe8;   /* subtle inset areas */
+  --color-on-surface-variant: #00000099; /* secondary text on surface */
+
+  /* ── Surface container hierarchy ──
+     M3 uses 5 levels: lowest → low → base → high → highest */
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f3ede8;
+  --color-surface-container:         #ede6e0;
+  --color-surface-container-high:    #e7dfd8;
+  --color-surface-container-highest: #e1d8d0;
+
+  /* ── Inverse ── */
+  --color-inverse-surface:    #2C1A0E;
+  --color-inverse-on-surface: #F7EDE3;
+  --color-inverse-primary:    #DEB99A;  /* primary on dark surfaces */
+
+  /* ── Outline ── */
+  --color-outline:         #00000033;  /* borders, dividers */
+  --color-outline-variant: #0000001f;  /* subtle borders */
+
+  /* ── State layers (M3 opacity scale) ── */
+  --color-on-surface-opacity-08: #00000014;  /* hover */
+  --color-on-surface-opacity-12: #0000001f;  /* focus / pressed */
+  --color-on-surface-opacity-38: #00000061;  /* disabled */
+
+  /* ── Scrim ── */
+  --color-scrim: #00000052;
+
+  /* ── Semantic (success / warning / info) ── */
+  --color-success:           #2E7D32;
+  --color-on-success:        #ffffff;
+  --color-success-container: #C8E6C9;
+
+  --color-warning:           #E65100;
+  --color-on-warning:        #ffffff;
+  --color-warning-container: #FFE0B2;
+
+  --color-info:              #1565C0;
+  --color-on-info:           #ffffff;
+  --color-info-container:    #BBDEFB;
+
+  /* ── Elevation ── */
+  --elevation-1: 0 1px 2px 0 rgb(0 0 0 / 0.06);
+  --elevation-2: 0 4px 12px 0 rgb(0 0 0 / 0.08);
+  --elevation-3: 0 8px 24px 0 rgb(107 66 38 / 0.12);
 }
 
 body {
