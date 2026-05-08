@@ -46,14 +46,15 @@ const Navbar = () => {
 
     return (
         <nav className="bg-primary">
-            <div className="flex flex-row justify-center">
+            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col gap-2 py-3 md:flex-row md:items-end md:justify-between">
                 {/* Logo section */}
                 <div className="flex flex-col p-2 align-middle">
                     <div className="h-20 bg-gray-500"/>
                     <h1 className="p-2 text-on-primary">GHKL Image here</h1>
                 </div>
                 {/* Links section */}
-                <div className="flex flex-col p-2">
+                <div className="flex flex-col p-2 md:min-w-[24rem]">
                     {/* Church verse placeholder */}
                     <div className="h-20 bg-gray-500"/>
                     {/* Mobile navigation toggle */}
@@ -85,6 +86,7 @@ const Navbar = () => {
                         {NAVIGATION_LINKS.map(renderNavigationLink)}
                       </div>
                     )}
+                </div>
                 </div>
             </div>
         </nav>
