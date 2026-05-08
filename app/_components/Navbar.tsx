@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,6 +19,8 @@ const NAVIGATION_LINKS: LinkPayload[] = [
 
 const Navbar = () => {
     const pathname = usePathname();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     const renderNavigationLink = ({ href, label }: LinkPayload) => {
         const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
@@ -33,6 +36,7 @@ const Navbar = () => {
                     ? "var(--color-primary-container)"
                     : "transparent",
                 }}
+                onClick={() => setIsMobileMenuOpen(false)}
                 aria-current={isActive ? "page" : undefined}
               >
                 {label}
@@ -52,10 +56,35 @@ const Navbar = () => {
                 <div className="flex flex-col p-2">
                     {/* Church verse placeholder */}
                     <div className="h-20 bg-gray-500"/>
+                    {/* Mobile navigation toggle */}
+                    <div className="flex justify-end p-2 md:hidden">
+                      <button
+                        type="button"
+                        onClick={() => setIsMobileMenuOpen((previousState) => !previousState)}
+                        className="rounded-md border px-3 py-2 text-sm font-medium"
+                        style={{
+                          borderColor: "var(--color-on-primary)",
+                          color: "var(--color-on-primary)",
+                        }}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls="mobile-navigation-menu"
+                      >
+                        Menu
+                      </button>
+                    </div>
                     {/* Desktop navigation */}
-                    <div className="flex flex-row p-2 justify-end">
+                    <div className="hidden flex-row p-2 justify-end md:flex">
                         {NAVIGATION_LINKS.map(renderNavigationLink)}
                     </div>
+                    {/* Mobile navigation */}
+                    {isMobileMenuOpen && (
+                      <div
+                        id="mobile-navigation-menu"
+                        className="flex flex-col gap-1 p-2 md:hidden"
+                      >
+                        {NAVIGATION_LINKS.map(renderNavigationLink)}
+                      </div>
+                    )}
                 </div>
             </div>
         </nav>
