@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link
                 key={href}
                 href={href}
-                className="px-3 py-2 text-sm font-medium rounded-md"
+                className="px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150 hover:bg-white/10"
                 style={{
                   color: isActive
                     ? "var(--color-on-primary-container)"
@@ -61,7 +61,7 @@ const Navbar = () => {
                       <button
                         type="button"
                         onClick={() => setIsMobileMenuOpen((previousState) => !previousState)}
-                        className="rounded-md border px-3 py-2 text-sm font-medium"
+                        className="rounded-md border px-3 py-2 text-sm font-medium transition-colors duration-150 hover:bg-white/10"
                         style={{
                           borderColor: "var(--color-on-primary)",
                           color: "var(--color-on-primary)",
