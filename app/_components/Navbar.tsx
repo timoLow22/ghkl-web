@@ -24,21 +24,18 @@ const Navbar = () => {
               <Link
                 key={href}
                 href={href}
-                className="relative px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150"
+                className="px-3 py-2 text-sm font-medium rounded-md"
                 style={{
-                  fontFamily: "var(--font-body)",
-                  color: isActive ? "var(--color-primary-95)" : "var(--color-primary-80)",
-                  background: isActive ? "rgba(255,255,255,0.12)" : "transparent",
+                  color: isActive
+                    ? "var(--color-on-primary-container)"
+                    : "var(--color-on-primary)",
+                  background: isActive
+                    ? "var(--color-primary-container)"
+                    : "transparent",
                 }}
                 aria-current={isActive ? "page" : undefined}
               >
                 {label}
-                {isActive && (
-                  <span
-                    className="absolute bottom-0.5 left-3 right-3 h-px rounded-full"
-                    style={{ background: "var(--color-primary-80)" }}
-                  />
-                )}
               </Link>
             )
     }
