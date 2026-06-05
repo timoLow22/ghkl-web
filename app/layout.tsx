@@ -1,28 +1,31 @@
 import type { Metadata } from "next";
+import { Footer } from "@/app/_components/layout/footer";
+import { Navbar } from "@/app/_components/layout/navbar";
+import { Container } from "@/app/_components/layout/container";
+import { siteConfig } from "@/config/site";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
 
 export const metadata: Metadata = {
   title: {
-    default: "Gospel Hall Kuala Lumpur",
-    template: "%s | Gospel Hall KL",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.shortName}`,
   },
-  description: "Welcome to Gospel Hall Kuala Lumpur 2.0!",
+  description: siteConfig.description,
 };
 
-export default function HomeLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="h-full antialiased"
-    >
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className="h-full antialiased">
+      <body className="flex min-h-full flex-col">
         <Navbar />
-        {children}
+        <main className="flex-1 py-8 md:py-12">
+          <Container>{children}</Container>
+        </main>
+        <Footer />
       </body>
     </html>
   );
