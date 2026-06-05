@@ -93,40 +93,44 @@
   --elevation-3: 0 8px 24px 0 rgb(107 66 38 / 0.12);
 }
 
-/* ── Base reset ── */
-*, *::before, *::after { box-sizing: border-box; }
+/* ── Base reset ──
+   Rules live in @layer base so Tailwind utilities (e.g. text-inverse-on-surface)
+   can override them on specific elements. Unlayered rules would always win. */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.3;
+    color: var(--color-on-surface);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+  }
+
+  img, video { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
 }
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  line-height: 1.3;
-  color: var(--color-on-surface);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-  border-radius: var(--shape-extra-small);
-}
-
-::selection {
-  background-color: var(--color-primary-container);
-  color: var(--color-on-primary-container);
-}
-
-img, video { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
