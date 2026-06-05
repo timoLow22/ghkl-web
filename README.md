@@ -27,6 +27,7 @@ app/                  # Routes, layouts, global styles
   _components/        # App-specific components (layout shell, UI primitives)
 config/               # Church content and site metadata
 lib/                  # Shared code helpers (not church copy)
+  stringUtils.ts      # String formatting and manipulation
   styles/             # Tailwind / className utilities
 public/               # Static assets (images, etc.)
 docs/                 # Project docs and roadmap
