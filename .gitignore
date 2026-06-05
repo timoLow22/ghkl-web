@@ -39,6 +39,13 @@ yarn-error.log*
 # vs code debugger
 .vscode
 
+# Cursor
+.cursor/*
+
+# Auto-generated documents from Cursor for project planning
+# Not needed for production code and will stash this somewhere else
+docs/*
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
