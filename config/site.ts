@@ -37,8 +37,8 @@ export const siteConfig = {
   },
 
   verse: {
-    text: "Church verse placeholder — update in config/site.ts",
-    reference: "Reference here",
+    text: "Christ Jesus came into the world to save sinners",
+    reference: "1 Timothy 1:15",
   },
 
   navigation: [
@@ -55,10 +55,10 @@ export const siteConfig = {
   },
 
   address: {
-    line1: "Address line 1",
-    line2: "Address line 2",
+    line1: "Gospel Hall Church, 3",
+    line2: "Jalan Hang Jebat, City Centre",
     city: "Kuala Lumpur",
-    postcode: "00000",
+    postcode: "50150",
     country: "Malaysia",
   } satisfies SiteAddress,
 

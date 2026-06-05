@@ -7,7 +7,7 @@ const footerLinkClassName =
   "text-sm text-inverse-on-surface/80 transition-colors hover:text-inverse-primary";
 
 const footerHeadingClassName =
-  "font-heading text-sm font-semibold tracking-wide uppercase";
+  "font-heading text-sm font-semibold tracking-wide uppercase text-inverse-on-surface";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ export function Footer() {
   return (
     <footer className="bg-inverse-surface text-inverse-on-surface">
       <Container className="py-10 md:py-12">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2">
           <section aria-labelledby="footer-about">
             <h2 id="footer-about" className={footerHeadingClassName}>
               {siteConfig.shortName}
@@ -23,21 +23,6 @@ export function Footer() {
             <p className="mt-3 text-sm text-inverse-on-surface/80">
               {siteConfig.footer.tagline}
             </p>
-          </section>
-
-          <section aria-labelledby="footer-navigation">
-            <h2 id="footer-navigation" className={footerHeadingClassName}>
-              Navigation
-            </h2>
-            <ul className="mt-3 space-y-2">
-              {siteConfig.navigation.map(({ href, label }) => (
-                <li key={href}>
-                  <Link href={href} className={footerLinkClassName}>
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </section>
 
           <section aria-labelledby="footer-visit">
